@@ -17,15 +17,13 @@ The backend of **HandsOn**, a community-driven social volunteering platform, is 
 - **Framework:** Express.js
 - **Database:** MongoDB
 - **Authentication:** JWT
-- **Storage:** Cloudinary (for images)
-- **Security:** bcrypt, helmet, CORS
 
 ## ⚙ Setup Instructions
 
 ### 1. Clone the repository
 ```sh
 git clone https://github.com/aaliahammedpriom/hands-on-volunteering-platform-server.git
-cd hands-on-volunteering-platform-server
+cd handson-server
 ```
 
 ### 2. Install dependencies
