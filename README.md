@@ -3,6 +3,10 @@
 ## Overview
 The backend of HandsOn, a community-driven social volunteering platform, is built with Express.js and MongoDB. It provides APIs for managing users, posts, and events.
 
+## Git Repository
+
+[Client Git](<https://github.com/aaliahammedpriom/hands-on-volunteering-platform-client>)
+
 ## Features
 - User authentication and authorization (Firebase & JWT-based)
 - CRUD operations for user profiles, posts, and events
@@ -18,44 +22,73 @@ The backend of HandsOn, a community-driven social volunteering platform, is buil
 - **Storage:** Cloudinary (for images)
 - **Security:** bcrypt, helmet, CORS
 
-## Installation
-```sh
-# Clone the repository
-git clone https://github.com/aaliahammedpriom/hands-on-volunteering-platform-server.git
-cd HandsOn-Backend
+## ⚙ Setup  Client Side Instructions
+1. **Clone the client repository**:
+   ```sh
+   git clone https://github.com/aaliahammedpriom/hands-on-volunteering-platform-server.git
+   cd handson-server
+   ```
+``
+2. **Install dependencies**:
+   ```sh
+   npm install
+   ```
+3. **Configure environment variables**:
+   - Create a `.env` file in the root directory and add Firebase configuration details
+   ```env
+  DB_USER=your_DB_USER
+  DB_PASS=your_DB_PASS
+  ACCESS_TOKEN=your_ACCESS_TOKEN
+   ```
+4. **Run the development server**:
+   ```sh
+   nodemon
+   ```
 
-# Install dependencies
-npm install
 
-# Set up environment variables (.env file)
-DB_USER=your_DB_USER
-DB_PASS=your_DB_PASS
-ACCESS_TOKEN=your_ACCESS_TOKEN
-
-# Run the server
-npm start
-```
 
 ## API Endpoints
-### User Routes
-- **POST** `/api/users/register` - Register a new user
-- **POST** `/api/users/login` - Authenticate a user
-- **GET** `/api/users/:id` - Get user details
-- **PUT** `/api/users/:id` - Update user profile
 
-### Post Routes
-- **POST** `/api/posts` - Create a new post (Only the creator can edit/delete)
-- **GET** `/api/posts` - Get all posts
-- **GET** `/api/posts/:id` - Get a specific post
-- **PUT** `/api/posts/:id` - Update a post (Only the creator can edit/delete)
-- **DELETE** `/api/posts/:id` - Delete a post (Only the creator can edit/delete)
+### **User Authentication**
+- `POST /jwt` – Generate JWT token
+- `POST /users` – Register a new user
+- `GET /users/:uid` – Get user details by UID
+- `GET /users` – Search users by email
+- `GET /user/:email` – Get user details by email
+- `PATCH /update/:uid` – Update user details
+- `PATCH /users/log` – Increment user log count
 
-### Event Routes
-- **POST** `/api/events` - Create a new event
-- **GET** `/api/events` - Get all events
-- **GET** `/api/events/:id` - Get a specific event
-- **PUT** `/api/events/:id` - Update an event (Only the creator can edit/delete)
-- **DELETE** `/api/events/:id` - Delete an event (Only the creator can edit/delete)
+### **Events**
+- `POST /events` – Create a new event
+- `GET /events` – Fetch all events (supports filtering by location, category, and availability)
+- `GET /events/user/:uid` – Fetch events created by a user (requires authentication)
+- `GET /events/:id` – Get event details by ID (requires authentication)
+
+### **Community Help Requests**
+- `POST /communityhelp` – Create a new help request (requires authentication)
+- `GET /communityhelp` – Fetch all community help requests (supports filtering by location, urgency, and availability)
+- `POST /communityhelpmessage` – Send a message related to a community help request (requires authentication)
+- `GET /communityhelpmessage/:creator` – Fetch messages sent to a community help request creator (requires authentication)
+
+### **Contributions**
+- `POST /contribution` – Join a contribution (requires authentication)
+- `GET /contribution` – Fetch all contributions
+- `GET /contribution/user/:uid` – Fetch contributions by a specific user (requires authentication)
+
+### **Teams**
+- `POST /team` – Create a new team (requires authentication)
+- `GET /team` – Fetch all teams (supports leaderboard sorting)
+- `GET /teamowner` – Fetch teams owned by a user (requires authentication)
+- `GET /teamdetails` – Fetch team details by ID (requires team permission verification)
+
+### **Team Requests**
+- `POST /teamrequest` – Send a team join request (requires authentication)
+- `PATCH /teamrequest` – Update team join request status (requires authentication)
+- `GET /teamrequest/:id` – Fetch approved team requests by team ID (requires authentication)
+
+### **Team Discussions**
+- `POST /teamdiscussion` – Create a discussion post in a team (requires authentication)
+- `GET /teamdiscussion/:id` – Fetch discussion posts by team ID (requires authentication)
 
 
 
