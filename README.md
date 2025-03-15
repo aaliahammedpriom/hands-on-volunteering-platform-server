@@ -1,17 +1,15 @@
-# HandsOn Backend
+# HandsOn Server
 
 ## Overview
-The backend of HandsOn, a community-driven social volunteering platform, is built with Express.js and MongoDB. It provides APIs for managing users, posts, and events.
+The backend of **HandsOn**, a community-driven social volunteering platform, is built with **Express.js** and **MongoDB**. It provides APIs for managing users, posts, and events.
 
 ## Git Repository
-
-[Client Git](<https://github.com/aaliahammedpriom/hands-on-volunteering-platform-client>)
+- [Client Repository](https://github.com/aaliahammedpriom/hands-on-volunteering-platform-client)
+- [Server Repository](https://github.com/aaliahammedpriom/hands-on-volunteering-platform-server)
 
 ## Features
 - User authentication and authorization (Firebase & JWT-based)
 - CRUD operations for user profiles, posts, and events
-- Image uploads with Cloudinary
-- Secure password hashing with bcrypt
 - Efficient data handling with MongoDB
 
 ## Tech Stack
@@ -22,30 +20,31 @@ The backend of HandsOn, a community-driven social volunteering platform, is buil
 - **Storage:** Cloudinary (for images)
 - **Security:** bcrypt, helmet, CORS
 
-## ⚙ Setup  Client Side Instructions
-1. **Clone the client repository**:
-   ```sh
-   git clone https://github.com/aaliahammedpriom/hands-on-volunteering-platform-server.git
-   cd handson-server
-   ```
-``
-2. **Install dependencies**:
-   ```sh
-   npm install
-   ```
-3. **Configure environment variables**:
-   - Create a `.env` file in the root directory and add Firebase configuration details
-   ```env
-  DB_USER=your_DB_USER
-  DB_PASS=your_DB_PASS
-  ACCESS_TOKEN=your_ACCESS_TOKEN
-   ```
-4. **Run the development server**:
-   ```sh
-   nodemon
-   ```
+## ⚙ Setup Instructions
 
+### 1. Clone the repository
+```sh
+git clone https://github.com/aaliahammedpriom/hands-on-volunteering-platform-server.git
+cd hands-on-volunteering-platform-server
+```
 
+### 2. Install dependencies
+```sh
+npm install
+```
+
+### 3. Configure environment variables
+Create a `.env` file in the root directory and add the required credentials:
+```env
+DB_USER=your_DB_USER
+DB_PASS=your_DB_PASS
+ACCESS_TOKEN=your_ACCESS_TOKEN
+```
+
+### 4. Run the development server
+```sh
+nodemon
+```
 
 ## API Endpoints
 
@@ -90,8 +89,7 @@ The backend of HandsOn, a community-driven social volunteering platform, is buil
 - `POST /teamdiscussion` – Create a discussion post in a team (requires authentication)
 - `GET /teamdiscussion/:id` – Fetch discussion posts by team ID (requires authentication)
 
+---
 
+📢 **Contributions are welcome!** If you'd like to improve HandsOn, feel free to submit a pull request. 🎉
 
-📢 Contributions are welcome! If you'd like to improve HandsOn, feel free to submit a pull request. 🎉
-
-# hands-on-volunteering-platform-server
